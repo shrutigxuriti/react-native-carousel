@@ -7,7 +7,7 @@ The Image Carousel component is a React Native component designed to display a c
 ## Installation
 
 ```sh
-npm install react-native-carousel
+npm install react-native-custom-image-carousel
 ```
 
 ## Usage
@@ -15,7 +15,7 @@ npm install react-native-carousel
 ```js
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import ImageCarousel from './ImageCarousel';
+import ImageCarousel from 'react-native-custom-image-carousel';
 
 const images = [
   require('./images/image1.jpg'),
