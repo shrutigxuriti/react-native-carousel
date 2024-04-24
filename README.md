@@ -1,4 +1,4 @@
-# react-native-carousel
+# react-native-custom-image-carousel
 
 ## React Native Simple Carousel
 
