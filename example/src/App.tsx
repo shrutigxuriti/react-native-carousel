@@ -1,18 +1,24 @@
 import * as React from 'react';
 
-import { StyleSheet, View, Text } from 'react-native';
-import { multiply } from 'react-native-carousel';
+import { StyleSheet, View, Dimensions } from 'react-native';
+import ImageCarousel from 'react-native-carousel';
 
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
-
-  React.useEffect(() => {
-    multiply(3, 7).then(setResult);
-  }, []);
-
+  const images = [
+    require('../assets/image1.jpg'),
+    require('../assets/image2.jpg'),
+    require('../assets/image3.jpg'),
+  ];
+  const { width: screenWidth } = Dimensions.get('window');
   return (
     <View style={styles.container}>
-      <Text>Result: {result}</Text>
+      <ImageCarousel
+        images={images}
+        height={300}
+        width={screenWidth - 20}
+        carouselTiming={2000}
+        resizeMode="cover"
+      />
     </View>
   );
 }
