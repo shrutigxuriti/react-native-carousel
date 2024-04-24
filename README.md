@@ -61,9 +61,9 @@ export default App;
 - `carouselTiming`: Interval in milliseconds for automatic carousel scrolling (optional, default: 1000). Set to 0 to disable automatic scrolling.
 
 ## Screenshots
-![1000025126](https://github.com/shrutigxuriti/react-native-carousel/assets/131851981/dca77f76-a081-4382-8979-6cb7acc0bb72)
+![1000025126](https://github.com/shrutigxuriti/react-native-custom-image-carousel/assets/131851981/dca77f76-a081-4382-8979-6cb7acc0bb72)
 
-https://github.com/shrutigxuriti/react-native-carousel/assets/131851981/151d1eaf-4c0f-4e66-8780-ce60c05f3c04
+https://github.com/shrutigxuriti/react-native-custom-image-carousel/assets/131851981/151d1eaf-4c0f-4e66-8780-ce60c05f3c04
 
 ## Contributing
 

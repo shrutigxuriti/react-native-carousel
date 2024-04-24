@@ -1,6 +1,6 @@
 {
   "name": "react-native-custom-image-carousel",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "React Native Simple Carousel",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -26,7 +26,7 @@
     "!**/.*"
   ],
   "scripts": {
-    "example": "yarn workspace react-native-carousel-example",
+    "example": "yarn workspace react-native-custom-image-carousel-example",
     "test": "jest",
     "typecheck": "tsc --noEmit",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
@@ -41,14 +41,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shrutigxuriti/react-native-carousel.git"
+    "url": "git+https://github.com/shrutigxuriti/react-native-custom-image-carousel.git"
   },
   "author": "shrutigxuriti <shruti.ghosh@xuriti.com> (https://github.com/shrutigxuriti)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/shrutigxuriti/react-native-carousel/issues"
+    "url": "https://github.com/shrutigxuriti/react-native-custom-image-carousel/issues"
   },
-  "homepage": "https://github.com/shrutigxuriti/react-native-carousel#readme",
+  "homepage": "https://github.com/shrutigxuriti/react-native-custom-image-carousel#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },

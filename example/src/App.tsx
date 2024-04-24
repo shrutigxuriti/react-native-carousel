@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { StyleSheet, View, Dimensions } from 'react-native';
-import ImageCarousel from 'react-native-carousel';
+import ImageCarousel from 'react-native-custom-image-carousel';
 
 export default function App() {
   const images = [
