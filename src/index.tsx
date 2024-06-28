@@ -8,9 +8,11 @@ import {
   type NativeSyntheticEvent,
   type NativeScrollEvent,
 } from 'react-native';
+import YoutubeIframe from 'react-native-youtube-iframe';
 
 interface ImageCarouselProps {
-  images: any;
+  images?: any[];
+  videos?: string[];
   height: number;
   width: number;
   inactiveDotColor?: string;
@@ -20,7 +22,8 @@ interface ImageCarouselProps {
 }
 
 const ImageCarousel: React.FC<ImageCarouselProps> = ({
-  images,
+  images = [],
+  videos = [],
   height,
   width,
   activeDotColor = '#333333',
@@ -31,11 +34,12 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
   const [currentPage, setCurrentPage] = useState(0);
   const scrollViewRef = useRef<ScrollView>(null);
   const { width: screenWidth } = Dimensions.get('window');
+  const media = [...images, ...videos]; // Combine images and videos
 
   useEffect(() => {
     const interval = setInterval(() => {
       if (scrollViewRef.current) {
-        const nextPageIndex = (currentPage + 1) % images.length;
+        const nextPageIndex = (currentPage + 1) % media.length;
         scrollViewRef.current.scrollTo({
           x: nextPageIndex * screenWidth,
           animated: true,
@@ -44,7 +48,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
     }, carouselTiming);
 
     return () => clearInterval(interval);
-  }, [currentPage, images.length, screenWidth, carouselTiming]);
+  }, [currentPage, media.length, screenWidth, carouselTiming]);
 
   const handleScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
     const { contentOffset } = event.nativeEvent;
@@ -62,6 +66,10 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
     }
   };
 
+  const isYouTubeVideo = (item: string) => {
+    return videos.includes(item);
+  };
+
   return (
     <View style={[styles.container, { height, width }]}>
       <ScrollView
@@ -72,17 +80,26 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
         onScroll={handleScroll}
         scrollEventThrottle={16}
       >
-        {images.map((image: any, _: any) => (
-          <Image
-            key={image}
-            source={image}
-            style={{ height, width }}
-            resizeMode={resizeMode}
-          />
+        {media.map((item: any, index: number) => (
+          <View key={index} style={{ height, width }}>
+            {isYouTubeVideo(item) ? (
+              <YoutubeIframe
+                height={height}
+                width={width}
+                videoId={item}
+              />
+            ) : (
+              <Image
+                source={typeof item === 'string' ? { uri: item } : item}
+                style={{ height, width }}
+                resizeMode={resizeMode}
+              />
+            )}
+          </View>
         ))}
       </ScrollView>
       <View style={styles.pagination}>
-        {images.map((_: any, index: any) => (
+        {media.map((_: any, index: any) => (
           <View
             key={index}
             style={[

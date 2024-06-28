@@ -9,11 +9,15 @@ export default function App() {
     require('../assets/image2.jpg'),
     require('../assets/image3.jpg'),
   ];
+  const videos = [
+    'qVQZLA_Noi0?si=pWENR_3O9Rq4O7q-'
+  ]
   const { width: screenWidth } = Dimensions.get('window');
   return (
     <View style={styles.container}>
       <ImageCarousel
         images={images}
+        videos={videos}
         height={300}
         width={screenWidth - 20}
         carouselTiming={2000}
