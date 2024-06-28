@@ -83,11 +83,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({
         {media.map((item: any, index: number) => (
           <View key={index} style={{ height, width }}>
             {isYouTubeVideo(item) ? (
-              <YoutubeIframe
-                height={height}
-                width={width}
-                videoId={item}
-              />
+              <YoutubeIframe height={height} width={width} videoId={item} />
             ) : (
               <Image
                 source={typeof item === 'string' ? { uri: item } : item}
